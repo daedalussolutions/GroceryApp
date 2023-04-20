@@ -74,9 +74,17 @@ public class GroceryApplication extends Application {
         return productList;
     }
 
-    public void deleteAllStats(){
+    public void deleteAllProducts(){
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL("DELETE FROM tbl_products");
+    }
+
+    public double getListTotal(){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT SUM(total) AS listTotal FROM tbl_products", null);
+        cursor.moveToFirst();
+        double listTotal = cursor.getDouble(0);
+        return listTotal;
     }
 
 }

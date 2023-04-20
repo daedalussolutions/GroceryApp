@@ -23,6 +23,7 @@ import java.util.List;
 
 public class Grocery_List_Activity extends AppCompatActivity {
     private GroceryApplication groceryApplication;
+    private TextView textViewListTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,11 @@ public class Grocery_List_Activity extends AppCompatActivity {
         List<Product> productList = groceryApplication.getAllProducts();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewProducts);
+        textViewListTotal = findViewById(R.id.listTotal);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ProductsAdapter(productList));
+        textViewListTotal.setText("Total: $" + String.format("%.2f", groceryApplication.getListTotal()));
     }
 
     @Override

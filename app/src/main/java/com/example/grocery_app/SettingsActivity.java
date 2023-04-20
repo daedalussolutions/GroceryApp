@@ -25,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 GroceryApplication app = (GroceryApplication) getApplication();
-                app.getAllProducts();
+                app.deleteAllProducts();
             }
         };
         btnResetList.setOnClickListener(btnResetListClick);

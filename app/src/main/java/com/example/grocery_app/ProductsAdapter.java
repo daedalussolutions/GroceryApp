@@ -29,11 +29,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = productList.get(position);
         holder.textViewProductName.setText("Name: " + product.getName());
-        holder.textViewProductPrice.setText("Price: " + product.getPrice());
+        holder.textViewProductPrice.setText("Price: $" +  String.format("%.2f", product.getPrice()));
         holder.textViewProductStore.setText("Store: " + product.getStore());
         holder.textViewProductCalories.setText("Calories: " + product.getCalories());
-        holder.textViewProductTax.setText("Tax : " + product.getTax());
-        holder.textViewProductTotal.setText("Total: " + product.getTotal());
+        holder.textViewProductTax.setText("Tax : " + product.getTax() + "%");
+        holder.textViewProductTotal.setText("Total: $" + String.format("%.2f", product.getTotal()));
     }
 
     @Override
