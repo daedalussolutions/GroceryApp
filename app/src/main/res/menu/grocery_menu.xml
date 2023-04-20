@@ -4,4 +4,7 @@
     <item
         android:id="@+id/grocery_list"
         android:title="Grocery List" />
+    <item
+        android:id="@+id/settings"
+        android:title="Settings" />
 </menu>
